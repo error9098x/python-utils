@@ -1,19 +1,19 @@
-import pickle
 import json
+import ast
 
-# Vulnerability: Insecure deserialization with pickle
+# Safe deserialization using JSON
 def load_data(data_string):
-    """Load serialized data - DANGEROUS!"""
-    return pickle.loads(data_string)
+    """Load serialized data safely"""
+    return json.loads(data_string)
 
 def save_data(data):
-    """Serialize data"""
-    return pickle.dumps(data)
+    """Serialize data safely"""
+    return json.dumps(data)
 
-# Vulnerability: eval() usage
+# Safe evaluation using literal_eval
 def calculate(expression):
-    """Evaluate mathematical expression"""
-    return eval(expression)
+    """Evaluate mathematical expression safely"""
+    return ast.literal_eval(expression)
 
 # Safe alternative
 def load_json(json_string):

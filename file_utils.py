@@ -11,7 +11,7 @@ def run_command(user_input):
 # Vulnerability 2: Command injection via subprocess
 def execute_script(script_name):
     """Run a script file"""
-    subprocess.call(f"python {script_name}", shell=True)
+    subprocess.call(["python", script_name], shell=False)
 
 # Safe function for comparison
 def list_directory(path):
